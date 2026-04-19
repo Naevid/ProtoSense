@@ -15,7 +15,7 @@ export function AppShell({ children, active = "home", title, eyebrow, actions }:
       <header className="sticky top-0 z-30 border-b border-[#e8ece9] bg-white/95 backdrop-blur">
         <div className="mx-auto flex min-h-20 max-w-7xl items-center gap-6 px-4 lg:px-6">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <Image src="/protosenselogo.png" alt="ProtoSense" width={40} height={40} className="h-10 w-10" />
+            <Image src="/protosenselogo.png" alt="ProtoSense" width={96} height={96} className="h-16 w-16" />
             <span className="text-base font-semibold text-[#111112]">ProtoSense</span>
           </Link>
 
