@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type AppShellProps = {
   children: React.ReactNode;
@@ -14,11 +15,8 @@ export function AppShell({ children, active = "home", title, eyebrow, actions }:
       <header className="sticky top-0 z-30 border-b border-[#e8ece9] bg-white/95 backdrop-blur">
         <div className="mx-auto flex min-h-20 max-w-7xl items-center gap-6 px-4 lg:px-6">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <span className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-md bg-[#111112] text-sm font-bold text-white">
-              <span className="absolute inset-0 opacity-50" style={{ background: "linear-gradient(48deg, #CDF5FD 0%, #D8FEF3 50%, #E8FED7 100%)" }} />
-              <span className="relative text-[#111112]">PF</span>
-            </span>
-            <span className="text-base font-semibold text-[#111112]">ProtocolRisk</span>
+            <Image src="/protosenselogo.png" alt="ProtoSense" width={40} height={40} className="h-10 w-10" />
+            <span className="text-base font-semibold text-[#111112]">ProtoSense</span>
           </Link>
 
           <div className="flex-1" />
