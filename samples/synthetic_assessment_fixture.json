@@ -1,0 +1,21 @@
+{
+  "protocol_id": "demo_fixture",
+  "overall_feasibility_risk": 67,
+  "risk_dimensions": {
+    "startup_complexity": {
+      "score": 70,
+      "label": "High",
+      "top_drivers": [
+        {"feature": "number_of_countries", "impact": 16},
+        {"feature": "multiple_vendor_dependencies", "impact": 13},
+        {"feature": "endpoint_novelty_level", "impact": 11}
+      ],
+      "summary": "Startup complexity is elevated due to cross-region coordination, vendor dependence, and novel endpoint execution requirements.",
+      "recommendations": [
+        "Reduce operational dependencies where possible",
+        "Flag early site capability screening needs",
+        "Simplify endpoint execution where feasible"
+      ]
+    }
+  }
+}

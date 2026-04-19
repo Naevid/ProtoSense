@@ -1,0 +1,83 @@
+from __future__ import annotations
+
+RISK_WEIGHTS: dict[str, dict[str, float]] = {
+    "startup_complexity": {
+        "number_of_countries": 12,
+        "number_of_sites": 8,
+        "adaptive_design": 10,
+        "endpoint_novelty_level": 10,
+        "oversight_complexity_level": 12,
+        "operational_complexity_level": 12,
+        "multiple_vendor_dependencies": 10,
+        "safety_reporting_complexity": 8,
+        "substudies_present": 6,
+        "interim_analysis_present": 5,
+    },
+    "enrollment_feasibility": {
+        "eligibility_restrictiveness_level": 18,
+        "biomarker_requirement": 12,
+        "genomic_testing_requirement": 10,
+        "exclusion_count": 10,
+        "inclusion_count": 6,
+        "target_sample_size": 8,
+        "participant_burden_level": 10,
+        "total_visit_count": 8,
+        "restrictive_comorbidity_filters": 7,
+        "prior_therapy_restrictions": 6,
+    },
+    "participant_burden": {
+        "total_visit_count": 14,
+        "in_person_visit_count": 16,
+        "procedure_intensity_level": 14,
+        "invasive_procedures_count": 14,
+        "travel_burden_flag": 10,
+        "diary_or_device_requirement": 8,
+        "number_of_timepoints": 8,
+        "remote_visit_count": -5,
+        "participant_burden_level": 15,
+    },
+    "site_execution_burden": {
+        "specialized_equipment_required": 14,
+        "central_lab_complexity": 12,
+        "imaging_complexity": 10,
+        "pharmacy_handling_complexity": 10,
+        "training_or_certification_required": 10,
+        "multiple_vendor_dependencies": 10,
+        "workflow_fragmentation_level": 12,
+        "number_of_assessment_types": 8,
+        "site_burden_level": 16,
+    },
+    "amendment_susceptibility": {
+        "number_exploratory_endpoints": 14,
+        "ambiguous_operational_language_flag": 16,
+        "internal_inconsistency_flag": 14,
+        "excessive_optional_content_flag": 10,
+        "high_design_novelty_flag": 12,
+        "likely_site_interpretation_variance_flag": 12,
+        "substudies_present": 8,
+        "endpoint_novelty_level": 8,
+        "adaptive_design": 6,
+    },
+}
+
+OVERALL_WEIGHTS = {
+    "startup_complexity": 0.22,
+    "enrollment_feasibility": 0.24,
+    "participant_burden": 0.18,
+    "site_execution_burden": 0.22,
+    "amendment_susceptibility": 0.14,
+}
+
+SIMULATOR_FIELDS = {
+    "number_exploratory_endpoints",
+    "inclusion_count",
+    "exclusion_count",
+    "total_visit_count",
+    "in_person_visit_count",
+    "remote_visit_count",
+    "invasive_procedures_count",
+    "number_of_countries",
+    "number_of_timepoints",
+    "biomarker_requirement",
+    "specialized_equipment_required",
+}

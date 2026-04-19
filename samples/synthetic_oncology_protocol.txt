@@ -1,0 +1,70 @@
+Phase II Randomized Study of PX-417 in Biomarker-Positive Advanced Solid Tumors
+
+Study Summary
+This Phase II, randomized, double-blind study will enroll approximately 240 participants with advanced solid tumors expressing the PX-417 response biomarker. The study will activate 48 clinical sites across 7 countries in North America and Europe.
+
+Objectives
+The primary objective is to evaluate progression-free survival. Secondary objectives include objective response rate, duration of response, overall survival, safety, tolerability, and patient-reported outcomes. Exploratory objectives include digital activity endpoints, circulating tumor DNA dynamics, immune phenotype shifts, imaging texture features, health utilization, and exploratory biomarker signatures.
+
+Endpoints
+Primary endpoints
+1. Progression-free survival by blinded independent review.
+
+Secondary endpoints
+1. Objective response rate.
+2. Duration of response.
+3. Overall survival.
+4. Incidence of treatment-emergent adverse events.
+5. Patient-reported fatigue score.
+
+Exploratory endpoints
+1. Digital activity endpoint from a wearable device.
+2. Circulating tumor DNA dynamics.
+3. Immune phenotype shifts.
+4. Imaging texture features.
+5. Health utilization.
+6. Exploratory biomarker signatures.
+
+Study Design
+Participants will be randomized 1:1 to PX-417 or placebo with standard therapy. The study includes an interim analysis after 120 participants complete Week 16. Optional imaging and translational substudies may be conducted where feasible at selected sites.
+
+Inclusion Criteria
+1. Age 18 years or older.
+2. Histologically confirmed advanced solid tumor.
+3. Biomarker-positive disease by central assay.
+4. Measurable disease by RECIST 1.1.
+5. ECOG performance status 0 or 1.
+6. Adequate organ function.
+7. Willingness to use the study wearable device.
+8. Availability of archival tissue or willingness to undergo fresh biopsy.
+9. Prior standard therapy unless contraindicated.
+10. Ability to comply with all scheduled visits.
+
+Exclusion Criteria
+1. Active uncontrolled infection.
+2. Significant cardiovascular disease.
+3. Untreated brain metastases.
+4. Prior therapy targeting the PX pathway.
+5. Major surgery within 28 days.
+6. Concurrent investigational therapy.
+7. Known genomic resistance mutation by local or central testing.
+8. Renal impairment.
+9. Hepatic impairment.
+10. Pregnancy or breastfeeding.
+11. Inability to complete electronic diaries.
+12. Any condition that, in the investigator's judgment, would interfere with participation.
+
+Schedule of Assessments
+Screening, Day 1, Week 2, Week 4, Week 6, Week 8, Week 12, Week 16, Week 20, Week 24, Week 32, Week 40, and Week 48 visits are required. Imaging is performed at screening and every 8 weeks. Remote symptom checks occur at Week 10 and Week 18. Participants complete daily electronic diaries and wear a validated activity device.
+
+Procedures
+Procedures include central laboratory testing, ECG, vital signs, PK sampling, tumor imaging, patient questionnaires, archival tissue review, and fresh biopsy for participants without available tissue. MRI or PET imaging may be required as appropriate based on tumor type. Samples must be shipped to the central lab within 24 hours.
+
+Safety
+Serious adverse events must be reported within 24 hours. Suspected unexpected serious adverse reactions, dose-limiting toxicities, and adverse events of special interest require expedited review.
+
+Site Requirements
+Sites must complete protocol training and imaging certification before activation. Sites require validated wearable device workflows, central lab shipping capability, pharmacy handling procedures, and imaging upload capability.
+
+Operational Notes
+The study uses an EDC vendor, central lab vendor, imaging vendor, wearable device vendor, and ePRO vendor. Optional substudy procedures may be conducted where possible. Some assessments may be performed as appropriate per investigator discretion.
