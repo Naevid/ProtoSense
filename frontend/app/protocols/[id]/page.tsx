@@ -18,12 +18,12 @@ const dimensionLabels: Record<string, string> = {
 };
 
 const metricDefinitions = [
-  ["Overall Feasibility Risk", "Combined risk across setup, enrollment, participant burden, site burden, and amendment risk. It is a guidance score, not a trial outcome prediction."],
-  ["Startup Complexity", "How hard the study is to set up across countries, sites, vendors, safety needs, and trial design."],
-  ["Enrollment Feasibility", "How difficult enrollment may be based on eligibility rules, biomarker gates, exclusions, and visit demands."],
-  ["Participant Burden", "How demanding the trial is for participants, including visits, procedures, travel, and tracking tasks."],
-  ["Site Execution Burden", "How heavy the operational load is on sites, including equipment, labs, imaging, pharmacy, and training."],
-  ["Amendment Susceptibility", "How likely the protocol may need changes due to unclear language, optional paths, or complex design."]
+  ["Overall Inefficiency Warning", "Early warning score for operational inefficiencies before trial launch."],
+  ["Startup Complexity", "Warns when startup requirements may slow activation timelines."],
+  ["Enrollment Feasibility", "Warns when criteria and visit design may reduce enrollment speed."],
+  ["Participant Burden", "Warns when participant workload may increase drop-off or missed tasks."],
+  ["Site Execution Burden", "Warns when site workflows are likely to create delays or rework."],
+  ["Amendment Susceptibility", "Warns when protocol complexity may trigger clarifications or amendments."]
 ];
 
 export default function ProtocolDashboard() {
@@ -38,7 +38,7 @@ export default function ProtocolDashboard() {
 
   if (error) {
     return (
-      <AppShell active="dashboard" title="Protocol feasibility dashboard">
+      <AppShell active="dashboard" title="Pre-trial inefficiency warnings">
         <p className="rounded-lg border border-line bg-white p-5 text-coral shadow-soft">{error}</p>
       </AppShell>
     );
@@ -46,8 +46,8 @@ export default function ProtocolDashboard() {
 
   if (!assessment) {
     return (
-      <AppShell active="dashboard" title="Protocol feasibility dashboard">
-        <p className="rounded-lg border border-line bg-white p-5 text-graphite shadow-soft">Loading feasibility assessment...</p>
+      <AppShell active="dashboard" title="Pre-trial inefficiency warnings">
+        <p className="rounded-lg border border-line bg-white p-5 text-graphite shadow-soft">Loading early warning assessment...</p>
       </AppShell>
     );
   }
@@ -57,20 +57,20 @@ export default function ProtocolDashboard() {
   return (
     <AppShell
       active="dashboard"
-      eyebrow="Assessment"
-      title="Operational intelligence for this protocol"
+      eyebrow="Early Warning"
+      title="Pre-trial inefficiency warnings for this protocol"
     >
       <section className="relative overflow-hidden rounded-lg border border-[#dfe5e1] bg-white p-6 shadow-soft">
         <div className="absolute inset-y-0 right-0 hidden w-1/2 lg:block" style={{ background: "linear-gradient(48deg, #CDF5FD 0%, #D8FEF3 48%, #E8FED7 100%)" }} />
         <div className="relative grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-sm font-semibold text-[#0ba299]">Overall feasibility risk</p>
+            <p className="text-sm font-semibold text-[#0ba299]">Overall inefficiency warning</p>
             <div className="mt-3 flex items-center gap-4">
               <p className="text-7xl font-semibold text-[#111112]">{assessment.overall_feasibility_risk}</p>
               <SeverityBadge label={assessment.overall_label} />
             </div>
             <p className="mt-4 max-w-xl text-sm leading-6 text-[#63656a]">
-              A weighted operational complexity signal grounded in extracted features, evidence snippets, and explicit scoring configuration.
+              A protocol-grounded early warning signal designed to flag likely inefficiencies before trial execution.
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
@@ -92,9 +92,7 @@ export default function ProtocolDashboard() {
 
       <section className="mt-5 rounded-lg border border-[#e1e7e3] bg-white shadow-soft">
         <details open>
-          <summary className="cursor-pointer list-none px-5 py-4 text-base font-semibold text-[#111112]">
-            How to read these metrics
-          </summary>
+          <summary className="cursor-pointer list-none px-5 py-4 text-base font-semibold text-[#111112]">How these warning signals work</summary>
           <div className="grid gap-0 border-t border-[#e1e7e3] md:grid-cols-2 xl:grid-cols-3">
             {metricDefinitions.map(([title, description]) => (
               <article key={title} className="border-b border-[#e1e7e3] p-5 xl:border-r">
@@ -110,7 +108,7 @@ export default function ProtocolDashboard() {
         <div className="rounded-lg border border-[#e1e7e3] bg-white shadow-soft">
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e1e7e3] px-5 py-4">
             <div>
-              <p className="text-xs font-semibold uppercase text-[#0ba299]">Risk drivers</p>
+              <p className="text-xs font-semibold uppercase text-[#0ba299]">Top inefficiency warnings by dimension</p>
               <h2 className="mt-1 text-base font-semibold text-[#111112]">Operational pressure by dimension</h2>
             </div>
             <span className="rounded-md border border-[#e1e7e3] bg-[#fbfcfb] px-3 py-1 text-xs text-[#63656a]">
@@ -135,8 +133,8 @@ export default function ProtocolDashboard() {
 
         <div className="rounded-lg border border-[#e1e7e3] bg-white shadow-soft">
           <div className="border-b border-[#e1e7e3] px-5 py-4">
-            <p className="text-xs font-semibold uppercase text-[#0ba299]">Recommended changes</p>
-            <h2 className="mt-1 text-base font-semibold text-[#111112]">Likely impact areas</h2>
+            <p className="text-xs font-semibold uppercase text-[#0ba299]">Mitigation actions</p>
+            <h2 className="mt-1 text-base font-semibold text-[#111112]">What to fix before trial launch</h2>
           </div>
           <div className="divide-y divide-[#e1e7e3]">
             {assessment.recommendations.map((rec, index) => (
@@ -152,8 +150,8 @@ export default function ProtocolDashboard() {
 
       <section className="mt-5 rounded-lg border border-[#e1e7e3] bg-white shadow-soft">
         <div className="border-b border-[#e1e7e3] px-5 py-4">
-          <p className="text-xs font-semibold uppercase text-[#0ba299]">Evidence sample</p>
-          <h2 className="mt-1 text-base font-semibold text-[#111112]">Recent extracted support</h2>
+          <p className="text-xs font-semibold uppercase text-[#0ba299]">Protocol evidence</p>
+          <h2 className="mt-1 text-base font-semibold text-[#111112]">Cited snippets behind these warnings</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[48rem] text-left text-sm">

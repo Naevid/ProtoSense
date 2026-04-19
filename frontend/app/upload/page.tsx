@@ -5,7 +5,7 @@ import { useState } from "react";
 import { AppShell } from "../../components/AppShell";
 import { runPipeline, uploadProtocol } from "../../lib/api";
 
-const steps = ["Upload PDF", "Map sections", "Extract features", "Score feasibility"];
+const steps = ["Upload protocol", "Index sections", "Detect inefficiency risks", "Generate warning insights"];
 
 export default function UploadPage() {
   const router = useRouter();
@@ -51,13 +51,13 @@ export default function UploadPage() {
   }
 
   return (
-    <AppShell active="upload" eyebrow="Protocol Intake" title="Connect a protocol to the feasibility network">
+    <AppShell active="upload">
       <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
         <section>
-          <p className="text-sm font-semibold text-[#0ba299]">From document to structured signals</p>
-          <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#111112]">Upload once. Inspect every downstream assumption.</h2>
+          <p className="text-sm font-semibold text-[#0ba299]">Pre-trial operational warning engine</p>
+          <h2 className="mt-4 text-3xl font-semibold leading-tight text-[#111112]">Upload once. Surface inefficiencies before execution begins.</h2>
           <p className="mt-4 text-sm leading-6 text-[#63656a]">
-            The pipeline preserves page-level source text, detects clinical sections, extracts canonical feasibility features, and calculates deterministic risk dimensions.
+            TrialPilot analyzes protocol timelines and workflows to flag likely delays, bottlenecks, and coordination risks ahead of launch.
           </p>
           <div className="mt-8 space-y-3">
             {steps.map((step, index) => (
@@ -80,9 +80,9 @@ export default function UploadPage() {
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
             >
-              <span className="block text-2xl font-semibold text-[#111112]">Add a protocol PDF</span>
+              <span className="block text-2xl font-semibold text-[#111112]">Upload protocol PDF</span>
               <span className="mt-3 block text-sm leading-6 text-[#63656a]">
-                Drag and drop a file here, or click to select. PDF and text files are supported for the MVP parser.
+                Drag and drop a PDF, or click to browse. We'll map sections, timing risks, and workflow pressure points.
               </span>
               <input
                 className="sr-only"
@@ -100,13 +100,13 @@ export default function UploadPage() {
               <div className="grid grid-cols-3 bg-[#fbfcfb] px-4 py-3 text-xs font-semibold text-[#63656a]">
                 <span>Output</span>
                 <span>Status</span>
-                <span>Method</span>
+                <span>Source</span>
               </div>
               {[
-                ["Section map", "Rule-first + Gemini fill"],
-                ["Feature schema", "Validated Pydantic model"],
-                ["Risk scores", "Weighted backend config"],
-                ["Recommendations", "Mapped driver logic"]
+                ["Section index", "Source + AI extraction"],
+                ["Timeline map", "Deadline-aware parsing"],
+                ["Warning score", "Operational risk engine"],
+                ["Action guidance", "Protocol-cited recommendations"]
               ].map(([item, method]) => (
                 <div key={item} className="grid grid-cols-3 border-t border-[#e1e7e3] px-4 py-4 text-sm">
                   <span className="font-semibold text-[#111112]">{item}</span>
