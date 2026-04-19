@@ -45,7 +45,7 @@ class GeminiProvider:
         try:
             return [ProtocolSection(**{**item, "method": "gemini"}) for item in data]
         except Exception as exc:
-            logger.warning("Gemini request failed for %s: %s", namespace, exc)
+            logger.warning("Gemini section refinement returned invalid data: %s", exc)
             return None
 
     async def semantic_feature_fill(self, context: dict[str, Any]) -> dict[str, Any]:
@@ -115,6 +115,12 @@ class GeminiProvider:
             return json.loads(cache_file.read_text(encoding="utf-8"))
 
         if not self.settings.enable_gemini or not self.settings.gemini_api_key:
+            logger.info(
+                "Gemini skipped for %s because ENABLE_GEMINI=%s and key configured=%s",
+                namespace,
+                self.settings.enable_gemini,
+                bool(self.settings.gemini_api_key),
+            )
             return None
 
         try:
@@ -129,5 +135,6 @@ class GeminiProvider:
             data = json.loads(response.text)
             cache_file.write_text(json.dumps(data, indent=2), encoding="utf-8")
             return data
-        except Exception:
+        except Exception as exc:
+            logger.warning("Gemini request failed for %s: %s", namespace, exc)
             return None
