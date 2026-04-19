@@ -12,6 +12,7 @@ export default function UploadPage() {
   const [activeStep, setActiveStep] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [dragActive, setDragActive] = useState(false);
 
   async function handleFile(file: File) {
     setBusy(true);
@@ -28,6 +29,25 @@ export default function UploadPage() {
     } finally {
       setBusy(false);
     }
+  }
+
+  function handleDragOver(event: React.DragEvent<HTMLLabelElement>) {
+    event.preventDefault();
+    if (busy) return;
+    setDragActive(true);
+  }
+
+  function handleDragLeave(event: React.DragEvent<HTMLLabelElement>) {
+    event.preventDefault();
+    setDragActive(false);
+  }
+
+  function handleDrop(event: React.DragEvent<HTMLLabelElement>) {
+    event.preventDefault();
+    if (busy) return;
+    setDragActive(false);
+    const file = event.dataTransfer.files?.[0];
+    if (file) void handleFile(file);
   }
 
   return (
@@ -52,9 +72,18 @@ export default function UploadPage() {
         <section className="relative">
           <div className="absolute inset-0 translate-x-5 translate-y-5 rounded-lg" style={{ background: "linear-gradient(48deg, #CDF5FD 0%, #D8FEF3 48%, #E8FED7 100%)" }} />
           <div className="relative rounded-lg border border-[#dfe5e1] bg-white p-6 shadow-soft">
-            <label className="focus-within:ring-4 focus-within:ring-[#0ba299]/20 block rounded-lg border border-dashed border-[#0ba299] bg-[#f7fffb] p-10 text-center">
+            <label
+              className={`focus-within:ring-4 focus-within:ring-[#0ba299]/20 block rounded-lg border border-dashed p-10 text-center transition-colors ${
+                dragActive ? "border-[#0a8f86] bg-[#ecfff8]" : "border-[#0ba299] bg-[#f7fffb]"
+              }`}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+              onDrop={handleDrop}
+            >
               <span className="block text-2xl font-semibold text-[#111112]">Add a protocol PDF</span>
-              <span className="mt-3 block text-sm leading-6 text-[#63656a]">PDF and text files are supported for the MVP parser.</span>
+              <span className="mt-3 block text-sm leading-6 text-[#63656a]">
+                Drag and drop a file here, or click to select. PDF and text files are supported for the MVP parser.
+              </span>
               <input
                 className="sr-only"
                 type="file"

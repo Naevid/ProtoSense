@@ -18,12 +18,12 @@ const dimensionLabels: Record<string, string> = {
 };
 
 const metricDefinitions = [
-  ["Overall Feasibility Risk", "Composite score across startup, enrollment, participant, site, and amendment dimensions. It is a directional feasibility signal, not a prediction of trial outcome."],
-  ["Startup Complexity", "Operational setup pressure from countries, sites, oversight needs, vendors, adaptive or novel design, and safety reporting complexity."],
-  ["Enrollment Feasibility", "Expected enrollment friction from eligibility restrictiveness, biomarker or genomic gating, exclusion burden, visit load, and deployable site capability."],
-  ["Participant Burden", "Participant-facing load from visits, in-person requirements, invasive procedures, travel expectations, diaries, devices, and assessment density."],
-  ["Site Execution Burden", "Site workflow pressure from equipment, central labs, imaging, pharmacy handling, training, vendors, and fragmented procedures."],
-  ["Amendment Susceptibility", "Design and language patterns associated with interpretation variance, optional branches, exploratory endpoint load, novelty, ambiguity, or inconsistency."]
+  ["Overall Feasibility Risk", "Combined risk across setup, enrollment, participant burden, site burden, and amendment risk. It is a guidance score, not a trial outcome prediction."],
+  ["Startup Complexity", "How hard the study is to set up across countries, sites, vendors, safety needs, and trial design."],
+  ["Enrollment Feasibility", "How difficult enrollment may be based on eligibility rules, biomarker gates, exclusions, and visit demands."],
+  ["Participant Burden", "How demanding the trial is for participants, including visits, procedures, travel, and tracking tasks."],
+  ["Site Execution Burden", "How heavy the operational load is on sites, including equipment, labs, imaging, pharmacy, and training."],
+  ["Amendment Susceptibility", "How likely the protocol may need changes due to unclear language, optional paths, or complex design."]
 ];
 
 export default function ProtocolDashboard() {
@@ -91,7 +91,7 @@ export default function ProtocolDashboard() {
       </section>
 
       <section className="mt-5 rounded-lg border border-[#e1e7e3] bg-white shadow-soft">
-        <details>
+        <details open>
           <summary className="cursor-pointer list-none px-5 py-4 text-base font-semibold text-[#111112]">
             How to read these metrics
           </summary>
